@@ -1,8 +1,18 @@
 import logging
 
-logging.basicConfig(filename='employee.log',
-                    level=logging.INFO,
-                    format='%(levelname)s : %(name)s : %(message)s')
+# Create a new logger
+logger = logging.getLogger(__name__)
+# We'll set the log level to employee logger
+logger.setLevel(logging.INFO)
+
+# Now we will add the logging format to the file handler (not logger)
+formatter = logging.Formatter('%(levelname)s : %(name)s : %(message)s')
+# To specify the employee log file where we want to add our logs to we have to add a file handler
+file_handler = logging.FileHandler('employee.log')
+file_handler.setFormatter(formatter)
+
+# Now we need to add the file handler to our logger
+logger.addHandler(file_handler)
 
 
 class Employee:
@@ -11,7 +21,7 @@ class Employee:
     def __init__(self, first, last):
         self.first = first
         self.last = last
-        logging.info(f'Created Employee {self.fullname} - {self.email}')
+        logger.info(f'Created Employee {self.fullname} - {self.email}')
 
     @property
     def fullname(self):
