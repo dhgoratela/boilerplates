@@ -1,4 +1,5 @@
 import logging
+import employee
 
 logging.basicConfig(level=logging.DEBUG, filename='test.log', format='%(asctime)s : %(levelname)s : %(message)s')
 
@@ -27,13 +28,13 @@ num1 = 20
 num2 = 10
 
 add_result = add(num1, num2)
-logging.debug(f'Add: {num1} + {num2} = {add_result}')
+logging.info(f'Add: {num1} + {num2} = {add_result}')
 
 sub_result = subtract(num1, num2)
-logging.debug(f'Sub: {num1} - {num2} = {sub_result}')
+logging.info(f'Sub: {num1} - {num2} = {sub_result}')
 
 mul_result = multiply(num1, num2)
-logging.debug(f'Mul: {num1} * {num2} = {mul_result}')
+logging.info(f'Mul: {num1} * {num2} = {mul_result}')
 
 div_result = divide(num1, num2)
-logging.debug(f'Div: {num1} / {num2} = {div_result}')
+logging.info(f'Div: {num1} / {num2} = {div_result}')
