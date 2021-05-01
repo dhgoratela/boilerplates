@@ -17,8 +17,15 @@ file_handler.setFormatter(formatter)
 # file handler, you got so set file_handler level
 file_handler.setLevel(logging.ERROR)
 
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+# stream_handler.setLevel(logging.ERROR)
+
 # Now we need to add the file handler to our logger
 logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
 
 
 def add(x, y):
